@@ -1,0 +1,146 @@
+﻿@model Tbl_Phonebook
+<html>
+    <head>
+    
+     <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/assets/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/index_style.css"/>
+   
+    
+    </head>
+    
+    <body style="direction:rtl ;">
+        
+     
+       
+        <div class="jumbotron " style="background-color: #F6A21E ;">
+            
+            <div class=" navbar">
+            <h3 style="color:#104210 ;"> دفترچه تلفن <i class="far fa-address-book"; style="color:#104210 ;"></i></h3>
+            
+            </div>
+            
+            
+            <div class="row">
+                
+                
+                <div class="col-lg-4 inp">
+                
+                <input  onkeyup="searchFunction()" id="myInput" class="form-control mt-2 text-center" placeholder="    جست و جو">
+                <span class="icon text-primary"><i class="fas fa-search"></i></span>
+                
+                <h5 class="mt-2" style="text-align:right ; color:#104210 ; "> مخاطب جدید اضافه کنید : </h5>
+
+
+<form action="/home/addnumber" method="get" >
+
+                    <input  type="text" asp-for="name" onblur="validateName()" class="form-control mb-3 mt-3 " placeholder="نام و نام خانوادگی" required >
+                    
+                    <div id="nameAlert" class="alert alert-danger text-justify p-2 "> لطفا نام مخاطب را وارد کنید</div>
+
+                    <input type="number" asp-for="number" onblur="validatePhone()" class="form-control mb-3" placeholder="شماره تلفن " required >
+                    <div id="phoneAlert" class="alert alert-danger text-justify p-2 "> لطفا یک شماره ی معتبر وارد کنید . </div>
+
+
+                    <input type="text" asp-for="email" onblur="validateEmail()" class="form-control mb-3" placeholder=" ایمیل " required>
+                    <div id="mailAlert" class="alert alert-danger text-justify p-2 "> لطفا یک ایمیل معتبر وارد کنید. </div>
+
+                    <button onclick="addContact()" class="btn btn-success w-100 btn1" type="submit"> ثبت </button>
+    
+                    </form>
+                </div>
+                
+                
+        <div class="col-lg-8" >
+                
+                <table id="myTable" class="table text-justify myTable"  >
+            <tr>
+<thead class="tableh1" >
+    <th class="col-1">ردیف </th>
+                <th class="col-2"> نام </th>
+                <th class="col-3"> شماره تلفن </th>
+                <th class="col-3"> ایمیل </th> 
+                <th class="col-1">حذف </th> 
+                   <th class="col-1">ویرایش </th> 
+                </thead>
+
+            </tr>
+
+
+
+
+
+    
+@if (ViewBag.result != null)
+                {
+                    int i = 1;
+                    @foreach (var item in ViewBag.result)
+{
+    <tr >    
+        <td>@i</td> 
+<td>@item.name </td>
+<td>@item.number </td>
+
+<td>@item.email </td>
+<td>
+    <a onclick="return confirm('آیا از حذف مطمئن هستید؟ ' )"  href="/home/delete/@item.id" class="btn btn-outline-danger"> حذف </a>
+</td>
+<td>
+
+    <a href="/home/edit/@item.id" class="btn btn-outline-success form-control" >  ویرایش</a>
+</td>
+    </tr>
+    i++;
+
+}
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+            
+                </table>
+
+                
+        </div>
+                
+            
+            
+            </div>    
+        </div>
+        
+        
+        
+        <footer class="text-center">سمانه قربانی</footer>
+        
+           <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/index.js"></script>
+    </body>
+    
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+@model Tbl_Phonebook
+<head  >
+
+<style>
+div{
+
+margin-top: 10px;
+margin-bottom: 30px;
+padding-top: 20px;
+}
+p{
+padding-top: -20px;
+font-size: large;
+color:#104210;
+padding-bottom: 5px;
+}
+
+#t{
+    padding-right:30px ;
+    
+}
+
+
+</style>
+
+
+</head>
+<body style="background-color: #104210;" >
+    <div class="jumbotron " style="background-color: #DAD870 ; direction: rtl;">
+            
+            <div class=" navbar">
+            <h3 id="t" style="color:#104210 ;"> تصحیح اطلاعات : <i class="far fa-address-book";></i></h3>
+            </div>
+
+<div style="background-color:#F6A21E ;direction:rtl ; ">
+    
+
+   
+<form action="/home/show" method="get" >
+<input type="int" asp-for="id" style="display:none ;" >
+<p ><b> نام و نام خانوادگی:</b> </p>
+                    <input  type="text" asp-for="name" class="form-control mb-3 mt-3 " placeholder="نام و نام خانوادگی" required >
+                    
+                    
+<p>   <b>شماره تلفن: </b> </p>
+                    <input type="text" asp-for="number" onblur="validatePhone()" class="form-control mb-3" placeholder="شماره تلفن " required >
+                    
+<p><b>ایمیل:</b></p>
+
+                    <input type="text" asp-for="email" onblur="validateEmail()" class="form-control mb-3" placeholder=" ایمیل " required>
+                    
+
+                   <button onclick="addContact()" class="btn btn-success w-100 btn1" type="submit"> ویرایش </button>
+    
+                    </form>
+
+
+
+</div>
+
+</div>
+
+
+</body>
+
+
+

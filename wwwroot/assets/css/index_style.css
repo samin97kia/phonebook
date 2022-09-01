@@ -1,0 +1,70 @@
+body
+{
+    color: aliceblue;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #104210;
+}
+
+tr:nth-child(even)
+{
+background-color: #ECF87F;
+}
+tr:nth-child(odd)
+{
+background-color: #FFCD58;
+}
+
+
+
+.jum
+{
+    text-align: center;
+    padding: 30px 30px;
+    padding-bottom: 220px;
+    width: 90%;
+    margin: auto;
+    background-color: rgba(0,0,0,0.3);
+   background-color:#DBA40E ;
+}
+
+.tableh1 th
+{
+    text-align: center;
+    width: 30%;
+    background-color: #DAD870;
+    border: 1px solid #7A871E;
+    
+}
+
+.icon
+{
+    position: absolute;
+    top: 18px;
+    left: 88%;
+    font-size: 20px;
+    
+    
+}
+
+.alert
+{
+    display: none;
+}
+
+.btn1
+{
+    margin-bottom: 20px;
+}
+
+tr{
+
+    border: 1px solid #7A871E;
+
+}
+td{
+text-align: center;
+
+    border: 1px solid #7A871E;
+    
+}
